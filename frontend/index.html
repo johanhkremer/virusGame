@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://fav.farm/😎" />
+    <link rel="stylesheet" href="/src/assets/scss/style.scss" />
+    <title>FED23 API-utveckling Realtime Frontend</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <img
+        class="brainvirusimg"
+        src="/public/img/brainvirus.png"
+        alt="brainvirustext"
+      />
+    </div>
+
+    <div id="start" class="">
+      <form id="username-form">
+        <div class="mb-3">
+          <input
+            type="text"
+            id="username"
+            class="form-control form-control-lg"
+            required
+            placeholder="Player name"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success">Start game</button>
+      </form>
+      <div id="waiting-message" class="hide">
+        <p class="info-msg">Waiting for another player to join...</p>
+      </div>
+      <section id="hsAndlg">
+        <aside class="highscoreLobby">
+          <h3>Highscore</h3>
+          <ol id="highscore">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ol>
+        </aside>
+        <aside class="latestGameLobby">
+          <h3>Latest games</h3>
+          <ul id="latestGame">
+            <li>
+              <div class="listStyleLG">
+                <h6>Figge</h6>
+                <h6>4p</h6>
+                <h6>Mullemekkki</h6>
+                <h6>6p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Johan</h6>
+                <h6>7p</h6>
+                <h6>Kenta</h6>
+                <h6>3p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Pontus</h6>
+                <h6>10p</h6>
+                <h6>Hanna</h6>
+                <h6>0p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Name</h6>
+                <h6>p</h6>
+                <h6>Name</h6>
+                <h6>p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Name</h6>
+                <h6>p</h6>
+                <h6>Name</h6>
+                <h6>p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Name</h6>
+                <h6>p</h6>
+                <h6>Name</h6>
+                <h6>p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Name</h6>
+                <h6>p</h6>
+                <h6>Name</h6>
+                <h6>p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Name</h6>
+                <h6>p</h6>
+                <h6>Name</h6>
+                <h6>p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Name</h6>
+                <h6>p</h6>
+                <h6>Name</h6>
+                <h6>p</h6>
+              </div>
+            </li>
+            <li>
+              <div class="listStyleLG">
+                <h6>Name</h6>
+                <h6>p</h6>
+                <h6>Name</h6>
+                <h6>p</h6>
+              </div>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <!-- /#username-form -->
+    </div>
+
+    <section id="game-section" class="hide">
+      <div class="grid-container">
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+      </div>
+
+      <aside class="gamestats">
+        <h2 id="room-name"></h2>
+        <h2>Scoreboard</h2>
+        <h3>You</h3>
+        <h3><span id="you">0</span></h3>
+        <h3>Not you</h3>
+        <h3><span id="opponent">0</span></h3>
+        <div class="player-1">
+          <h4>You</h4>
+          <h3 id="player1Timer">00:00</h3>
+        </div>
+        <div id="player-2" class="hide">
+          <h4>Player 2</h4>
+          <h3 id="player2Timer">00:00</h3>
+        </div>
+      </aside>
+    </section>
+
+    <section id="endgame" class="hide">
+      <h2 id="winner-message">Winner!</h2>
+
+      <h3>
+        <span id="finalScoreMe">0</span> - <span id="finalScoreYou">0</span>
+      </h3>
+
+      <h3>Highscore</h3>
+      <ol id="highscoreEndPage">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
+
+      <button id="playAgain" type="submit" class="btn btn-success">
+        Play again?
+      </button>
+    </section>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
